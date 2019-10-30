@@ -3,7 +3,7 @@ void setup()
 {
 	background(0);
 	size(600,600);
-	bob = new Particle[100];   
+	bob = new Particle[500];   
 	for(int i = 0; i < bob.length; i++){
 		bob[i] = new Particle();
 	}
@@ -11,6 +11,7 @@ void setup()
 }
 void draw()
 {
+	background(0);
 	for(int i = 0; i < bob.length; i++){
  		bob[i].show();    
  		bob[i].move();
@@ -29,7 +30,20 @@ class Particle
 	}
 	void move(){
 		myX = myX + Math.cos(myAngle) * mySpeed;
-		myY= myY +Math.sin(myAngle) * mySpeed;
+		myY= myY + Math.sin(myAngle) * mySpeed;
+		if(myX < 0){
+			myX = myY = 300;
+		}
+		if(myX > 600){
+			myX = myY = 300;
+		}
+		if(myY < 0){
+			myX = myY = 300;
+		}
+		if(myY > 600){
+			myX = myY = 300;
+		}
+
 	}
 	void show(){
 		noStroke();
