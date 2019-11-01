@@ -1,4 +1,6 @@
 Particle[] bob;
+PImage nuke;
+int y = 600;
 void setup()
 {
 	background(0);
@@ -8,23 +10,24 @@ void setup()
 		bob[i] = new Particle();
 		bob[0] = new OddballParticle();
 	}
+  nuke = loadImage("boom.png");
 }
 
 void draw()
 {
 	fill(0);
 	rect(0, 0, 600, 600);
-	int y = 600;
-	fill(255);
-	ellipse(300, y, 5, 5);
-	y = y - 1;	
-	
-
+	if(y > 299){
+		image(nuke,280,y,35,50);
+	}	
+	y = y - 2;	
+	if(y < 299){
 		for(int i = 0; i < bob.length; i++){
  			bob[i].show();    
  			bob[i].move();
  		}
-	
+
+	}
 			
 }
 class Particle
@@ -108,8 +111,6 @@ class OddballParticle extends Particle //inherits from Particle
 	void show(){
 		noStroke();
 		fill(myColor);
- 		ellipse((int)myX,(int)myY, 10,10);
+ 		ellipse((int)myX,(int)myY, 15,15);
 	}
 }
-
-
