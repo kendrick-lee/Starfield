@@ -1,5 +1,4 @@
 Particle[] bob;
-PImage nuke;
 int y = 600;
 void setup()
 {
@@ -10,7 +9,6 @@ void setup()
 		bob[i] = new Particle();
 		bob[0] = new OddballParticle();
 	}
-  nuke = loadImage("boom.png");
 }
 
 void draw()
@@ -18,7 +16,8 @@ void draw()
 	fill(0);
 	rect(0, 0, 600, 600);
 	if(y > 299){
-		image(nuke,280,y,35,50);
+		fill(100,245,234);
+		ellipse(300, y, 10, 10);
 	}	
 	y = y - 2;	
 	if(y < 299){
